@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout  xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="contentText"
+            type="String" />
+        <variable
+            name="collapseHandler"
+            type="com.labstyle.darioandroid.morelessapp.ICollapseTextHandler" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity"
+        android:padding="40dp">
+
+        <TextView
+            android:id="@+id/tvFull"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:collapseText="@{contentText}"
+            app:collapseHandler="@{collapseHandler}"
+            android:background="#c0c0c0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvLess"
+            android:visibility="gone"
+            android:maxLines="4"
+            android:ellipsize="end"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{contentText}"
+            android:background="#c0c0c0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/tvReadMore"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Read more"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvLess"/>
+        <TextView
+            android:id="@+id/tvReadLess"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Read less"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvFull"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
